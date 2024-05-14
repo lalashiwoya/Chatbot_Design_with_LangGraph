@@ -1,0 +1,1 @@
+<img src="images/workflow.jpeg" alt="Setting Panel" width="50%">
