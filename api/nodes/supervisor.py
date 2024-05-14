@@ -8,6 +8,7 @@ def node(state):
                          "initial_answer": state['generation'],
                          "workers": state["workers"],
                          "topics": state['topics'],
+                         "worker_names": state["workers"].keys()
                          })
     state["worker_trace"] += [response]
     return {"worker_trace": state["worker_trace"], "workers": state["workers"]}
