@@ -1,0 +1,27 @@
+[memory]
+max_token_limit = 500
+
+[topics]
+topics = ["Large Language Models (LLM) finetuning", "Explainable AI", "Heart Disease"]
+
+
+[llama_index]
+top_k = 3
+chunk_size = 300
+chunk_overlap = 30
+sentence_transformer = "text-embedding-3-small"
+
+[dataset.llm_finetune]
+dir = "data/llm_finetune"
+url_path = "data/llm_finetune/web_text_urls/urls.txt"
+db_path = "data/llm_finetune/db"
+pdf_dir = "data/llm_finetune/pdfs/"
+youtube_urls = "data/llm_finetune/youtube_urls/urls.txt"
+retriever_description = "Will retrieve all context regarding llm finetuning"
+
+[dataset.explainable_ai]
+dir = "data/explainable_ai"
+url_path = "data/explainable_ai/web_text_urls/urls.txt"
+db_path = "data/explainable_ai/db"
+retriever_description = "Will retrieve all context regarding explainable ai"
+

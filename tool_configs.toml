@@ -1,0 +1,18 @@
+[LLM_XAI]
+name = "LLM-XAI Knowledge Expert"
+description = """
+An Expert in answering questions about Large language models (LLMs) and explainable AI (XAI).
+"""
+
+[heart_disease]
+name = "Heart Disease Expert"
+description = """
+An expert in diagnosing heart disease.
+"""
+
+[off_topic]
+name = "Off-Topic Expert"
+description = """
+If you think the user's question is not related to the given
+topics, please use this expert.
+"""

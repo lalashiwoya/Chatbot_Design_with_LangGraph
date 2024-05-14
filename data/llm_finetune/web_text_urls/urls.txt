@@ -1,0 +1,2 @@
+https://www.superannotate.com/blog/llm-fine-tuning
+https://huggingface.co/docs/autotrain/en/llm_finetuning
