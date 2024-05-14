@@ -11,7 +11,7 @@ Topics: {topics}
 Question: {question}\n
 Context: {initial_answer}\n
 
-This is the name and expertise of all experts:
+This is the name and expertise of all available experts (in the form of expert name : description of expertise):
 Expert List: {workers}\n
 
 
@@ -26,7 +26,8 @@ to the expertise description of experts. If none of the
 expert's expertise description fits the question or context,
 respond with "FINISH".
 
-Your response should either be the name of expert or "FINISH". No other form of answer is allowed.
+Your response should either be the original name of expert or "FINISH". 
+No other answer format is allowed.
 
 Answer:
 
