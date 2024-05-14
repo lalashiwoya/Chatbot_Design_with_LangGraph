@@ -74,7 +74,8 @@ async def on_message(message: cl.Message):
          "workers": workers,
          "chains": chains,
          "retriever": retriever,
-         "topics": topics}
+         "topics": topics,
+         "model_name": user_settings.llm_model_name}
     
     async for chunk in graph.astream(
         input, config=RunnableConfig(callbacks=[

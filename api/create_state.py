@@ -14,4 +14,5 @@ class GraphState(TypedDict):
     retriever: RouterLlamaRetriever
     chains: Dict
     topics: List[str]
+    model_name: str 
     
