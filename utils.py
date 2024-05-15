@@ -48,6 +48,8 @@ def init_sentence_embedding(model_name = "text-embedding-3-small"):
     return OpenAIEmbedding(model=model_name)
 
 
+
+
  
         
  

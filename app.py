@@ -67,8 +67,6 @@ async def on_message(message: cl.Message):
     actions = []
     res = cl.Message(content="", elements=elements, actions=actions)
     response = ""
-    print("5"*20)
-    print(workers)
     input = {"question": message.content,
          "chat_history": memory,
          "workers": workers,
@@ -76,11 +74,30 @@ async def on_message(message: cl.Message):
          "retriever": retriever,
          "topics": topics,
          "model_name": user_settings.llm_model_name}
+    # try: 
+    #     async for event in graph.astream_events(
+    #         input,
+    #         version="v1",
+    #         include_names=['refine'],
+    #         config=RunnableConfig(callbacks=[cl.LangchainCallbackHandler()])):
+            
+    #     #     content = chunk['messages'][0].content
+    #     #     marker = "Final Answer:"
+    #     #     if marker in content:
+                
+    #     #         response = content.split(marker)[-1].strip()
+    #     # memory.save_context({"input": message.content}, {"output": response})
+    #         if event['event'] == "on_chain_end":
+    #             response = event['data']['output']['generation'][-1]
+    #             await res.stream_token(response)
+    # except:
+    #     pass
+    #         # print(event['data']['output']['generation'][-1])
+ 
     
     async for chunk in graph.astream(
         input, config=RunnableConfig(callbacks=[
                                         cl.LangchainCallbackHandler(
-        stream_final_answer=True,
     )
                                         ])):
         
@@ -91,8 +108,9 @@ async def on_message(message: cl.Message):
     #         response = content.split(marker)[-1].strip()
     # memory.save_context({"input": message.content}, {"output": response})
         if 'refine' in chunk:
-            result = chunk['refine']['generation'][-1]
-            await res.stream_token(result)
+            response = chunk['refine']['generation'][-1]
+            await res.stream_token(response)
+            memory.save_context({"input": message.content}, {"output": response})
     
     # async for chunk in agent.astream({
     #     "question": message.content,
