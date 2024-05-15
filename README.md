@@ -2,6 +2,16 @@
 ## Workflow
 <img src="images/workflow.jpeg" alt="Setting Panel" width="50%">
 
+This is my third version of using LangChain to implement a QA chatbot. The advantage is that it has the benefit of the router chain and agent; you can define your workflow, and you can use a node as a supervisor to decide if it needs the skills or knowledge of other nodes. These nodes function similarly to experts with specific expertise (e.g., proficiency in LLM fine-tuning or medical knowledge).
+
+The disadvantage is that it takes longer because you have to return the intermediate result to the supervisor node, which then decides whether to stop using any more experts or continue with appropriate ones. 
+
+To better utilize chat memory, I use an LLM node to generate the initial answer. For example, if the first question is "What is explainable AI?" and the next question is "Why is it important?", the supervisor node may mistakenly consider the latter as off-topic and redirect it to the Off-Topic Handler. However, an LLM equipped with chat memory and without awareness of our topics can generate an initial answer containing keywords like "explainable AI." When the supervisor node sees the question and the initial answer, it will recognize the relevance of the question to our topics.
+
+The final refine node uses an LLM to maintain the desired format and merge intermediate answers. 
+
+To prevent the supervisor node from getting stuck by using the same expert repeatedly, I enforce a rule that it can only use the same expert once. If a question is regarded as off-topic, the supervisor doesn't need to make a decision again.
+
 ## Environment Setup
 1. **Create and activate a Conda environment**:
     ```bash
