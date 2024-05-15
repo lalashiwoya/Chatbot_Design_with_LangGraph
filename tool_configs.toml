@@ -1,7 +1,7 @@
 [LLM_XAI]
 name = "LLM-XAI Knowledge Expert"
 description = """
-An Expert in answering questions about Large language models (LLMs) and explainable AI (XAI).
+An Expert in answering questions about Large language models (LLMs) and Explainable AI (XAI).
 """
 
 [heart_disease]

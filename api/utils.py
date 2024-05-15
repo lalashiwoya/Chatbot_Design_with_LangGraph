@@ -116,6 +116,21 @@ def get_router_retriever(configs: dict):
     #                                  [llm_retriever_description])
     # # relevant_docs = router_retriver.get_relevant_documents(query)
     # return router_retriver
+
+def normalize_expert_name(name: str):
+    name = name.lower()
+    if "heart" in name:
+        name = "Heart Disease Expert"
+    elif any(substring in name for substring in ["off topic", "off-topic"]):
+        name = "Off-Topic Expert"
+    elif "finish" in name:
+        name = "FINISH"
+    elif any(substring in name for substring in ["llm", "xai", "language", "explain"]):
+        name = "LLM-XAI Knowledge Expert"
+    else:
+        name = "FINISH"
+    
+    return name
     
 
 

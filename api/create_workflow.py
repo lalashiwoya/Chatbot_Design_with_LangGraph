@@ -8,6 +8,9 @@ from api.nodes import (
     retrieve,
     supervisor
 )
+from api.utils import normalize_expert_name
+
+
 
 def custome_workflow():
     workflow = StateGraph(GraphState)
@@ -22,7 +25,7 @@ def custome_workflow():
 
     workflow.add_edge("initial_answer", "supervisor")
     workflow.add_conditional_edges("supervisor",
-                    lambda x: x["worker_trace"][-1],
+                    lambda x:x["worker_trace"][-1],
                     {"FINISH": "refine",
                     "Off-Topic Expert":"off_topic_answer",
                     "Heart Disease Expert":"docter",
