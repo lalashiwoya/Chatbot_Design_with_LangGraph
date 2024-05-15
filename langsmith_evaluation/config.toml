@@ -1,0 +1,8 @@
+[agent]
+model_name = "gpt-3.5-turbo"
+
+[evaluator]
+model_name = "gpt-4"
+
+[langsmith]
+question_answer_csv_file_path = "langsmith_evaluation/data/question_and_reference_answer.csv"
