@@ -1,6 +1,6 @@
 
 ## Workflow
-<img src="images/workflow.jpeg" alt="Setting Panel" width="50%">
+<img src="images/workflow.jpeg" alt="Setting Panel" width="80%">
 
 This is my third version of using LangChain to implement a QA chatbot. The advantage is that it has the benefit of the router chain and agent; you can define your workflow, and you can use a node as a supervisor to decide if it needs the skills or knowledge of other nodes. These nodes function similarly to experts with specific expertise (e.g., proficiency in LLM fine-tuning or medical knowledge). In the current implementation, you can always expect to receive a response, whereas with an agent, there are times when you might not receive a response because the agent may not make a decision within a certain time limit.
 
